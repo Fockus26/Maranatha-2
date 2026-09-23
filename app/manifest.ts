@@ -1,43 +1,15 @@
 import type { MetadataRoute } from "next";
+import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/siteConfig";
 
-import { siteConfig } from "@/config/site";
-
-const manifest = (): MetadataRoute.Manifest => {
-	return {
-		name: siteConfig.name,
-
-		short_name: siteConfig.shortName,
-
-		description: siteConfig.description,
-
-		start_url: "/",
-
-		display: "standalone",
-
-		background_color: "#ffffff",
-
-		theme_color: "#111827",
-
-		lang: siteConfig.lang,
-
-		icons: [
-			{
-				src: "/icon.png",
-
-				sizes: "512x512",
-
-				type: "image/png",
-			},
-
-			{
-				src: "/apple-icon.png",
-
-				sizes: "180x180",
-
-				type: "image/png",
-			},
-		],
-	};
-};
-
-export default manifest;
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: SITE_NAME,
+    short_name: "Maranatha",
+    description: SITE_DESCRIPTION,
+    start_url: "/",
+    display: "standalone",
+    background_color: "#F5F6FA",
+    theme_color: "#101B45",
+    lang: "es",
+  };
+}

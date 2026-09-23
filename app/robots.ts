@@ -1,18 +1,14 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/config/site";
+import { SITE_URL } from "@/lib/siteConfig";
 
-const robots = (): MetadataRoute.Robots => {
-	return {
-		rules: {
-			userAgent: "*",
-
-			allow: "/",
-
-			disallow: ["/dashboard", "/admin", "/api"],
-		},
-
-		sitemap: `${siteConfig.url}/sitemap.xml`,
-	};
-};
-
-export default robots;
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/dashboard", "/dashboard/", "/historia"],
+    },
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
+  };
+}

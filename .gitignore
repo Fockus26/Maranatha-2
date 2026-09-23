@@ -1,5 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# claude
+/.claude
+/Claude Outputs
+
 # dependencies
 /node_modules
 /.pnp
@@ -30,12 +34,8 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# Ignorar todos los archivos que comiencen con .env
+# env files (can opt-in for committing if needed)
 .env*
-
-# Exceptuar .env.example para que Git sí lo rastree
-!.env.example
-
 
 # vercel
 .vercel
@@ -43,3 +43,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lighthouse reports
+/.lighthouse/

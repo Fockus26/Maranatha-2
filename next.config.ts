@@ -1,24 +1,17 @@
-import path from "node:path";
 import type { NextConfig } from "next";
-import createNextIntlPlugin from "next-intl/plugin";
-
-const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-	sassOptions: {
-		includePaths: [path.join(process.cwd(), "styles")],
-	},
-	images: {
-		qualities: [75],
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "images.unsplash.com",
-				port: "",
-				pathname: "/**",
-			},
-		],
-	},
+  reactCompiler: true,
+  images: {
+    // AVIF además de WebP: ~20-30% menos peso donde el navegador lo soporta.
+    formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
 };
 
-export default withNextIntl(nextConfig);
+export default nextConfig;

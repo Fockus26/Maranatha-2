@@ -1,148 +1,39 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
-	"files": {
-		"includes": [
-			"**",
-			"!**/*.css",
-			"!**/.git",
-			"!**/.next",
-			"!**/out",
-			"!**/build",
-			"!**/dist",
-			"!**/coverage",
-			"!**/node_modules",
-			"!**/*.min.js",
-			"!**/*.generated.*",
-			"!**/generated"
-		],
-		"ignoreUnknown": true
-	},
-	"formatter": {
-		"enabled": true,
-		"indentStyle": "tab",
-		"indentWidth": 4,
-		"lineWidth": 100,
-		"formatWithErrors": false
-	},
-	"assist": {
-		"actions": {
-			"source": {
-				"organizeImports": "on"
-			}
-		}
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true,
-			"correctness": {
-				"useExhaustiveDependencies": "warn",
-				"noUnusedVariables": "warn"
-			},
-			"style": {
-				"noDefaultExport": "error",
-				"useConsistentBuiltinInstantiation": "error",
-				"useImportType": "error",
-				"useExportType": "error",
-				"useNamingConvention": {
-					"level": "error",
-					"options": {
-						"strictCase": false,
-						"conventions": [
-							{
-								"selector": {
-									"kind": "objectLiteralProperty"
-								},
-								"formats": ["camelCase", "CONSTANT_CASE"]
-							}
-						]
-					}
-				}
-			},
-			"suspicious": {
-				"noExplicitAny": "error",
-				"noConsole": "error"
-			},
-			"a11y": {
-				"useAltText": "warn"
-			}
-		}
-	},
-	"overrides": [
-		{
-			"includes": [".next/**"],
-			"linter": {
-				"enabled": false
-			},
-			"formatter": {
-				"enabled": false
-			}
-		},
-		{
-			"includes": [
-				"**/page.tsx",
-				"**/layout.tsx",
-				"**/loading.tsx",
-				"**/error.tsx",
-				"**/not-found.tsx",
-				"**/template.tsx",
-				"**/default.tsx",
-				"**/sitemap.ts",
-				"**/robots.ts",
-				"**/manifest.ts",
-				"**/*.d.ts",
-				"i18n/request.ts",
-				"next.config.ts",
-				"vitest.config.ts",
-				"proxy.ts",
-				"postcss.config.mjs"
-			],
-			"linter": {
-				"rules": {
-					"style": {
-						"noDefaultExport": "off"
-					}
-				}
-			}
-		},
-		{
-			"includes": ["**/manifest.ts", "**/*.d.ts"],
-			"linter": {
-				"rules": {
-					"style": {
-						"useNamingConvention": "off"
-					}
-				}
-			}
-		},
-		{
-			"includes": ["lib/logger/client.ts"],
-			"linter": {
-				"rules": {
-					"suspicious": {
-						"noConsole": "off"
-					}
-				}
-			}
-		}
-	],
-	"vcs": {
-		"enabled": true,
-		"clientKind": "git",
-		"useIgnoreFile": true
-	},
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "double",
-			"semicolons": "always",
-			"trailingCommas": "all",
-			"arrowParentheses": "always"
-		}
-	},
-	"json": {
-		"formatter": {
-			"enabled": true,
-			"trailingCommas": "none"
-		}
-	}
+  "$schema": "https://biomejs.dev/schemas/2.4.2/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    },
+    "domains": {
+      "next": "recommended",
+      "react": "recommended"
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
 }
